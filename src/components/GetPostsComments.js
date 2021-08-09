@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 const commentURL = "https://jsonplaceholder.typicode.com/comments";
 
@@ -9,14 +9,13 @@ const GetPostsComments = (postId) => {
     const getUserComments = async () => {
       const { data } = await axios.get(commentURL, {
         params: {
-          postId: postId
+          postId: postId,
         },
       });
       setComments(data);
     };
 
-      getUserComments();
-    
+    getUserComments();
   }, [postId]);
   return comments;
 };
